@@ -1,10 +1,19 @@
-// 文字列を逆順にして返す
-function reverse(string) {
-  return Array.from(string).reverse().join("");
+// reverse()メソッドを追加してすべてのStringで使えるようにする
+String.prototype.reverse = function() {
+  return Array.from(this).reverse().join("");
 }
 
-// 回文ならtrueを、違うならfalseを返す
-function palindrome(string) {
-  let processedContent = string.toLowerCase();
-  return processedContent === reverse(processedContent);
+//Phraseオブジェクトを定義する
+function Phrase(content) {
+  this.content = content;
+
+  // パリンドロームのテスト用に変換したcontentを返す
+  this.processedContent = function processedContent() {
+    return this.content.toLowerCase();
+  }
+
+  // 回文ならtrueを、違うならfalseを返す
+  this.palindrome = function palindrome() {
+    return this.processedContent() === this.processedContent().reverse();
+  }
 }
