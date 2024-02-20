@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "mhartl-palindrome": "^0.2.3"
+  }
+}
